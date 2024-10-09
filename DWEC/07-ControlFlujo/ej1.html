@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-devide-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            do{
+                let dato = prompt ("Introduce tu edad");
+                
+                if (dato === null){
+                    console.log("Le has dado a cancelar");
+                } else if (isNaN(dato)){
+                    console.log("No has introducido un numero");
+                }else if (dato === "") {
+                    console.log("Debes escribir una edad");
+                }else{
+                    console.log("Tu edad es " + dato);
+                    console.log(typeof dato);
+                }
+          }while(dato == null || isNaN(dato) || dato =="");
+        </script>
+    </body>
+</html>
