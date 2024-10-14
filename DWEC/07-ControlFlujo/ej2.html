@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width-device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        <script>/*EJERCICIO 2*/
+            // Arreglo de páginas recomendadas
+            const paginasRecomendadas = [
+                'https://www.google.es',
+                'https://www.wikipedia.org',
+                'https://www.github.com',
+                'https://www.mozilla.org',
+                'https://www.stackoverflow.com'
+            ];
+
+            // Función para obtener una página aleatoria
+            function obtenerPaginaAleatoria() {
+                const indiceAleatorio = Math.floor(Math.random() * paginasRecomendadas.length);
+                return paginasRecomendadas[indiceAleatorio];
+            }
+
+            // Función para obtener el saludo basado en la hora
+            function obtenerSaludoSegunHora() {
+                const fecha = new Date();
+                const hora = fecha.getHours();
+                const diaSemana = fecha.toLocaleDateString('es-ES', { weekday: 'long' }); // Obtener el día de la semana en español
+
+                let saludo = '';
+
+                if (hora >= 7 && hora < 14) {
+                    saludo = `Buenos días usuari@ hoy es ${diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1)}`;
+                } else if (hora >= 14 && hora < 20) {
+                    saludo = `Buenas tardes usuari@ hoy es ${diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1)}`;
+                } else {
+                    saludo = `Buenas noches usuari@ hoy es ${diaSemana.charAt(0).toUpperCase() + diaSemana.slice(1)}`;
+                }
+
+                return saludo;
+            }
+
+            // Mostrar mensaje en consola
+            const paginaAleatoria = obtenerPaginaAleatoria();
+            const saludo = obtenerSaludoSegunHora();
+
+            console.log(`${saludo} y el enlace del día es: ${paginaAleatoria}`);
+        </script>
+    </body>
+</html>

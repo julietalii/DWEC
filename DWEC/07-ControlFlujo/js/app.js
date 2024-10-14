@@ -75,5 +75,140 @@ if(local > visitante){
 
   document.write("<h1>efe</h1>");*/
 
+  //para ejercicio 2 nos muestre x consola buenos dias, ....
+  /**objeto date 
+   * objeto q permite crear y manipular fechas y horas
+   * no es estativo, tengo que crearlo con new
+   * sintaxis:
+   * const fecha = new Date();
+  */
+
+  /*Métodos:
+  getFulleYear(), getDate(), getDay, getHoURS(), GETMINUTES
+  getmonth, getTime()
+
+  const fecha = new Date();
+  console.log(fecha);*/
+
+  const fecha = new Date();
+  console.log(fecha);
+  console.log(fecha.getFullYear());
+  console.log(fecha.getHours);
+  console.log(fecha.getDate);
+  console.log(fecha.getDay);
+  console.log(fecha.getTime());
+
+  //creamos dos fechas, 1/1/24 y 31-12 del 24
+
+  const fecha1 = new Date("2024-1-1");
+  console.log(fecha1);
+
+  const fecha2 = new Date(2024,0,1);
+  console.log(fecha2);
+
+ const fecha3 = new Date("2024-12-31");
+
+ let diferenciafecha = fecha3.getTime() - fecha1.getTime();
+ let diferenciaDias = diferenciafecha /(1000*60*60*24)
+ console.log(Math.round(diferenciaDias));
 
 
+ //SWITCH
+ /**
+  * Sintaxis: 
+  *     switch(expresion){
+  *         case valor1:
+  *             instrucciones si valor1 true;
+  *             break;
+  *         case valor2:
+  *             instrucciones;
+  *             break;
+  *         default (no es necesario)
+  *             instrucciones SIN BREAK;
+  * }
+  * TIENE COMPARACIONES ESTRICTAS
+  */
+
+
+ let nota = 5;
+ switch(nota){
+    case 1:
+        console.log("Suspenso");
+        break;
+    case 2: 
+        console.log("Suspenso");
+        break;
+    case 3:
+        console.log("Suspenso");
+        break;
+    case 4:
+        console.log("Suspenso");
+        break;
+    case 5:
+        console.log("Aprobado");
+        break;
+    case 6:
+        console.log("Bien");  
+        break;
+    case 7:
+        console.log("Notable"); 
+        break;
+    case 8:
+        console.log("Notable"); 
+        break;
+    case 9:
+        console.log("Sobresaliente");
+        break;
+    case 10:
+        console.log("Sobresaliente");
+        break;
+    default:
+        console.log("Error");
+ }
+
+
+ //FOR
+ /**
+  * Sintaxis:
+  *     for(expresionInicial; expresionCondicion; expresionActualizacion){
+  *         instrucciones;
+  * 
+  * }
+  */
+
+
+ for(let i = 1; i<=10 ; i++){
+    console.log(i);
+ }
+ //console.log(i) da error porque let es de bloque
+
+ //omitimos expresion inicial, la creamos fuera
+
+ let i=1;
+ for( ; i<=10; i++){
+    console.log(i);
+ }
+ console.log(i);//imprime 11
+
+ for (let j = 1;  ; j++){  //omitimos segunda expresion
+    if(j>10){
+        break;
+    }
+    console.log(j);
+ }
+
+ for (let j = 1; j<=10; ){
+        console.log(j);
+        j++;
+ }
+
+ //continue: omite la interaccion y pasa a la siguiente
+ for (let j = 1; j <= 10; j++){
+    if(j%2===0){
+        continue;
+    }
+    if(j>5){
+        break;
+    }
+    console.log(j);
+ }
