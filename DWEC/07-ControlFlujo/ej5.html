@@ -1,25 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Control de flujo</title>
-    <link href="https://fonts.googleapis.com/css2?family=Carrois+Gothic+SC&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <title>Triángulo de Asteriscos</title>
 </head>
 <body>
+    <h1>Dibuja un Triángulo de Asteriscos</h1>
+    <p>Introduce un número entero positivo:</p>
+    
+    <input type="number" id="numeroInput" placeholder="Número">
+    <button onclick="dibujarTriangulo()">Dibujar</button>
+    
+    <pre id="resultado"></pre>
+
     <script>
-        dato = prompt("Introduce un número entero");
-        if(typeof(dato) == float){
-            console.log("Debes introducir un número entero");
-        }else if (isNaN(dato)){
-            console.log("Debes introducir un número")
-        }else if (dato < 0){
-            console.log("No se insertó un número positivo")
-        }else{
-            for(let i=0; i<=dato; i++){
-                console.log("*");
-                console.log(\);
+        function dibujarTriangulo() {
+            const numero = parseInt(document.getElementById('numeroInput').value);
+            const resultado = document.getElementById('resultado');
+            let triangulo = '';
+
+            if (numero > 0) {
+                for (let i = 1; i <= numero; i++) {
+                    triangulo += '* '.repeat(i) + '\n'; // Crea cada fila del triángulo
+                }
+                resultado.textContent = triangulo;
+            } else {
+                console.log("No se ha insertado un número positivo.");
+                resultado.textContent = ''; // Limpiar si no es un número válido
             }
         }
     </script>

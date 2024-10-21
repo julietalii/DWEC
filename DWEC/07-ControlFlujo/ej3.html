@@ -1,0 +1,33 @@
+<!--Contenedores aleatorios-->
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Aleatorio</title>
+
+    <!--CSS:      -->
+    <style> 
+        #colorBox {
+            width: 100px;  /* Ancho*/
+            height: 100px; /* Alto*/
+            
+        }
+    </style>
+</head>
+<body>
+    <div id="colorBox"></div> <!-- Contenedor con color aleatorio -->
+
+    <script>
+        // ----------------------
+        function generarColorAleatorio() {
+            const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+            return randomColor;
+        }
+
+        // ----------------------
+        const colorBox = document.getElementById('colorBox');
+        colorBox.style.backgroundColor = generarColorAleatorio(); //Color de fondo aleatorio
+    </script>
+</body>
+</html>
