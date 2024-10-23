@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 6/title>
+    <style>
+        .cuadrado {
+            position: absolute; 
+            width: 50px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function generarColorAleatorio() {
+            return '#' + Math.floor(Math.random() * 16777215).toString(16);
+        }
+
+        function generarPosicionAleatoria(max) {
+            return Math.floor(Math.random() * max) + 'px';
+        }
+
+        function crearCuadradosAleatorios(cantidad) {
+            document.body.innerHTML = '';
+            for (let i = 0; i < cantidad; i++) {
+                const cuadrado = document.createElement('div'); 
+                cuadrado.classList.add('cuadrado'); 
+
+                cuadrado.style.backgroundColor = generarColorAleatorio();
+                cuadrado.style.top = generarPosicionAleatoria(window.innerHeight - 50); 
+                cuadrado.style.left = generarPosicionAleatoria(window.innerWidth - 50);  
+
+                document.body.appendChild(cuadrado);
+            }
+        }
+
+        let dato = prompt("Introduce un número mayor que 0");
+
+        if (dato !== null && !isNaN(dato) && parseInt(dato) > 0) {
+            crearCuadradosAleatorios(parseInt(dato)); 
+        } else {
+            console.log("Por favor, introduce un número entero positivo."); //  error por consola
+        }
+    </script>
+</body>
+</html>

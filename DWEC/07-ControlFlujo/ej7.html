@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Códigos Unicode</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tabla de Códigos Unicode (Primeros 1000 símbolos)</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+                <th>Código</th>
+                <th>Símbolo</th>
+            </tr>
+        </thead>
+        <tbody id="unicodeTable">
+        </tbody>
+    </table>
+
+    <script>
+        function crearTablaUnicode() {
+            const tabla = document.getElementById('unicodeTable');
+            let fila;
+
+            for (let i = 0; i < 1000; i++) {
+                if (i % 10 === 0) {
+                    fila = document.createElement('tr');
+                    tabla.appendChild(fila);
+                }
+
+                const codigo = i + 1;  
+                const simbolo = String.fromCharCode(codigo);  
+
+                const celdaCodigo = document.createElement('td');
+                celdaCodigo.textContent = codigo;
+                fila.appendChild(celdaCodigo);
+
+                const celdaSimbolo = document.createElement('td');
+                celdaSimbolo.textContent = simbolo;
+                fila.appendChild(celdaSimbolo);
+            }
+        }
+        crearTablaUnicode();
+    </script>
+</body>
+</html>
