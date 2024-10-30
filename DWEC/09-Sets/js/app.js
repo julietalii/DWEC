@@ -25,7 +25,7 @@ console.log(conjunto);
 console.log(conjunto[0]); //undefined porque esto no se puede hacer en set, no hay indices
 
 //crear pasandole array
-const conjunto2 = new Set(["a", "b", "a", "d"]);
+const conjunto2 = new Set(["a", "b", "a", "d"]); //test
 console.log(conjunto2);
 
 const array = [1,3,5,3,4,5]; //array con duplos
@@ -54,3 +54,60 @@ conjunto.delete("hola");
 console.log(conjunto);
 conjunto.clear();
 console.log(conjunto);
+
+
+
+/***********************************************************************
+ *                                                                     *
+ *                               30.10.2024                            *
+ *                                                                     *
+ **********************************************************************/
+
+const ropa = new Set(["pantalon", "camisa", "Camisa", "pijama"]);
+
+/*segunda forma de crear conjuntos:  */
+const motos = new Set();
+motos.add("Yamaha");
+motos.add("Honda");
+motos.add("Honda");//este ya no se añadiria, porque no puede repetirse, se añaden en orden de llegada
+
+//metodos
+//size
+console.log(ropa.size);//nos devuelve el num elemen del conjunto
+
+//delete:
+ropa.delete("Camisa"); //no deja hueco, porque no tiene indice
+console.log(ropa);
+
+//has:
+console.log(ropa.has("Camisa")); //devuelve true o false en funcion si esta o no en el set
+
+
+//clear: limpia todos los elementos del conjunto 
+motos.clear();
+console.log(motos);
+
+//para visualizar
+for(let valor of ropa){
+    console.log(valor);
+}
+
+const conjunto4 = new Set("pantalon"); //te segrega la palabra en una letra y la guarda en una celda del cset
+console.log(conjunto4);
+
+//values()
+for(let valor of ropa.values()){
+    console.log(valor);//imprime los valores del conjuntos
+}
+
+//keys()
+for(let clave of ropa.keys()){
+    console.log(clave);
+}
+
+//entries(): como es conjunto y no tiene claves, devuelve el valor 2x
+for(let [clave, valor] of ropa.entries()){
+    console.log(`Clave es ${clave} y valor es ${valor}`);
+}
+
+
