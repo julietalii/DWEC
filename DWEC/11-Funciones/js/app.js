@@ -256,3 +256,86 @@ pares.forEach(function(par, indice){
 
 
 //consifue nuevo array con las pañabras de mas de 4 letras
+
+
+/*******************************************************
+ *                                                     *
+ *                     18 NOV 2024                     *
+ *                                                     *
+ *******************************************************/
+
+/*MAP TRANSFORMA ELEMENTOS DE ARRAY PERO NO FILTRA: */
+const numeros =[2,3,4,1];
+
+const dobles = numeros.map(function(num){
+    return num*2;
+});
+
+console.log(dobles);
+//.map recorre todos los elementos de un array y 
+//x eso pasas funcion anonima
+
+
+/*M I   I N T E N T O */
+const palabras2 = ["mesa", "silla", "ordenador", "tomcat"];
+// const totalpalabras = palabras2.map(function(total){
+//     for(let i=0; i<palabras2.length; i++){
+//         palabras2[i].length;
+//         const largos=[];
+//         largos.push(palabras2[i].length);
+//     }
+// })
+
+
+/**C O M O   L O   H A C E   I R I A : */
+
+const longpal = palabras2.map(palabras2=> palabras2.length);
+console.log(longpal);
+
+/*F I L T E R:   */
+// Recorre todos los elementos de un array y a cada elemento se le aplica
+// una funcion o condicion y si se cumple se filtra.
+// Puede devolver un array de igual o menor longitud que el original
+// Si ningun elemento cumple la condicion, devuelve un array vacio
+
+// const nuevoArray = array.filter(funcion(elemento, indice, array))
+    //instrucciones
+
+
+
+    //pares
+    const paresn = numeros.filter(function(num){
+        return (num %2 ===0);
+    });
+
+    console.log(paresn);
+   
+    const paresz = numeros.filter(num => num%2 ===0);
+    console.log(paresz);
+
+    //palabras de mas de 6 letras
+
+    const palabrasLargas = palabras2.filter(palabra => palabra.length>6);
+    console.log(palabrasLargas);
+
+    /*funcion tradicional
+    se le pasa array y una letra
+     devuelve array con las palabras que incluyan la letra adecuada*/
+
+    function palabrasConLetra(array,letra){ //se le pasa array y letra
+        array.filter(function(palabra){
+            return palabra.toLowerCase().includes(letra.toLowerCase());
+        })
+    }
+
+    function palabrasConLetra(array,letra){ //se le pasa array y letra
+        const arrayFiltrado = array.filter
+        (palabra => palabra.toLowerCase().includes(letra.toLowerCase()));
+        return arrayFiltrado;
+    }
+    
+
+
+    //  const dobles = numeros.map(function(num){
+    //     return num*2;
+    // });

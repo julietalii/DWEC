@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lotería Primitiva</title>
+    <style>
+
+        .combinaciones {
+            margin: 20px auto;
+            max-width: 600px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+        .combinacion {
+            margin: 5px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Generador de Combinaciones para Lotería Primitiva</h1>
+    <button id="generar">Generar Combinaciones</button>
+    <div class="combinaciones" id="resultados"></div>
+
+    <script>
+    // Generar combinación aleatoria de 6 númerosdel 1 al 49
+function generarCombinacion() {
+    const numeros = new Set(); // Usamos un Set para evitar duplicados
+    while (numeros.size < 6) {
+        const numeroAleatorio = Math.floor(Math.random() * 49) + 1;
+        numeros.add(numeroAleatorio); // Añadimos el número al Set
+    }
+    return [...numeros];
+}
+
+// Funcion que genera 50 combinaciones
+function generarCombinaciones() {
+    const combinaciones = [];
+    for (let i = 0; i < 50; i++) {
+        combinaciones.push(generarCombinacion()); 
+    }
+    return combinaciones;
+}
+
+// Función principal que ejecuta todo
+function main() {
+    const combinaciones = generarCombinaciones(); // Generamos las 50 combinaciones
+
+    // Mostramos las combinaciones en la consola
+    combinaciones.forEach((combinacion, index) => {
+        console.log(`Combinación ${index + 1}: ${combinacion.join(', ')}`);
+    });
+}
+
+
+main();
+
+    </script>
+</body>
+</html>
