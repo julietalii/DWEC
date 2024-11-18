@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+function validarNombre() {
+  while (true) {
+    const nombre = prompt("Introduce un nombre de usuario (solo letras minúsculas y números):").trim();
+
+    // Verificamos si el usuario canceló
+    if (nombre === null) {
+      console.log("Operación cancelada.");
+      return null;
+    }
+
+    // Validación del nombre (solo minúsculas y números)
+    let esValido = true;
+    for (let i = 0; i < nombre.length; i++) {
+      const char = nombre[i];
+      if (!((char >= 'a' && char <= 'z') || (char >= '0' && char <= '9'))) {
+        esValido = false;
+        break;
+      }
+    }
+
+    if (esValido) {
+      return nombre;
+    } else {
+      console.log("Error: El nombre solo puede contener letras minúsculas y números. Inténtalo de nuevo.");
+    }
+  }
+}
+
+function validarContraseña() {
+  while (true) {
+    const contraseña = prompt("Introduce una contraseña válida (debe incluir mayúsculas, minúsculas, números y caracteres especiales):").trim();
+
+    
+    if (contraseña === null) {
+      console.log("Operación cancelada.");
+      return null;
+    }
+
+   
+    let tieneMayuscula = false;
+    let tieneMinuscula = false;
+    let tieneNumero = false;
+    let tieneEspecial = false;
+
+    for (let i = 0; i < contraseña.length; i++) {
+      const char = contraseña[i];
+
+      if (char >= 'A' && char <= 'Z') tieneMayuscula = true;
+      else if (char >= 'a' && char <= 'z') tieneMinuscula = true;
+      else if (char >= '0' && char <= '9') tieneNumero = true;
+      else tieneEspecial = true;
+
+    
+      if (tieneMayuscula && tieneMinuscula && tieneNumero && tieneEspecial) break;
+    }
+
+    if (tieneMayuscula && tieneMinuscula && tieneNumero && tieneEspecial) {
+      return contraseña;
+    } else {
+      console.log("Error: La contraseña debe incluir al menos una letra mayúscula, una minúscula, un número y un carácter especial. Inténtalo de nuevo.");
+    }
+  }
+}
+
+function main() {
+  const nombre = validarNombre();
+  if (nombre === null) return; 
+
+  const contraseña = validarContraseña();
+  if (contraseña === null) return; 
+
+  console.log(`Información almacenada correctamente: 
+  Usuario: ${nombre} 
+  Contraseña: ${contraseña}`);
+}
+
+
+main();
+
+    </script>
+</body>
+</html>

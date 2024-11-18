@@ -6,84 +6,42 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+                // texto y la clave
+        const texto = prompt("Introduce el texto a cifrar:").trim(); // trim elimina espacios innecesarios
+        const clave = Math.abs(parseInt(prompt("Introduce la clave de cifrado:").trim())); // parseInt y Math.abs para que de un numero positivo
 
- <!DOCTYPE html>
- <html lang="en">
- <head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Cifrado César</title>
- </head>
- <body>
-     <h1>Cifrado César</h1>
-     <form id="cipherForm">
-         <label for="text">Ingresa el texto:</label>
-         <input type="text" id="text" name="text" required><br><br>
- 
-         <label for="key">Ingresa la clave (número):</label>
-         <input type="number" id="key" name="key" required><br><br>
- 
-         <button type="submit">Cifrar</button>
-     </form>
- 
-     <h2>Texto Cifrado:</h2>
-     <p id="result"></p>
- 
-     <script>
-// Función que aplica el Cifrado César
-function cifrarCesar(texto, clave) {
-    let resultado = '';
-
-    // Iteramos sobre cada carácter del texto
-    for (let i = 0; i < texto.length; i++) {
-        let caracter = texto[i];
+        // Función para realizar el cifrado César
+        function cifradoCesar(texto, clave) {
+        let resultado = "";
         
-        // Obtener el código Unicode del carácter
-        let codigo = texto.charCodeAt(i);
-        
-        // Si es una letra mayúscula (A-Z)
-        if (caracter >= 'A' && caracter <= 'Z') {
-            // Aplicar desplazamiento en el rango de las letras mayúsculas (A-Z)
-            codigo = ((codigo - 65 + clave) % 26) + 65;
+        for (let i = 0; i < texto.length; i++) {
+            const charCode = texto.charCodeAt(i); // Obtenemos el código Unicode del caracrter
+            const nuevoCharCode = charCode + clave; // Movemos el caracter por la clave
+            resultado += String.fromCharCode(nuevoCharCode); // Convertimos codigo a carácter
         }
-        // Si es una letra minúscula (a-z)
-        else if (caracter >= 'a' && caracter <= 'z') {
-            // Aplicar desplazamiento en el rango de las letras minúsculas (a-z)
-            codigo = ((codigo - 97 + clave) % 26) + 97;
+
+        return resultado;
         }
-        
-        // Agregar el nuevo carácter al resultado
-        resultado += String.fromCharCode(codigo);
-    }
 
-    return resultado;
-}
+        // Aplicamos cifrado
+        const textoCifrado = cifradoCesar(texto, clave);
 
-// Función principal
-function main() {
-    // Pedir al usuario un texto y una clave
-    const texto = prompt("Ingresa el texto a cifrar:");
-    const clave = parseInt(prompt("Ingresa la clave (número de desplazamiento):"));
+        // Mostramos el resultado en la consola
+        console.log("Texto original:", texto);
+        console.log("Texto cifrado:", textoCifrado);
 
-    // Verificar que la clave sea un número
-    if (isNaN(clave)) {
-        console.log("La clave debe ser un número.");
-        return;
-    }
-
-    // Cifrar el texto
-    const textoCifrado = cifrarCesar(texto, clave);
-
-    // Mostrar el texto original y el cifrado en la consola
-    console.log("Texto original: " + texto);
-    console.log("Texto cifrado: " + textoCifrado);
-}
-
-// Ejecutar la función principal
-main();
-
-     </script>
- </body>
- </html>
+    </script>
+</body>
+</html>
+ 
  
 

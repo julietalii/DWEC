@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Palíndromo</title>
+</head>
+<body>
+    <script>
+       
+        function limpiarTexto(texto) {
+            const acentos = {
+                á: "a", 
+                é: "e", 
+                í: "i", 
+                ó: "o", 
+                ú: "u", 
+                ü: "u", 
+                ñ: "n"
+            };
+            
+            let textoLimpio = "";
+            for (let char of texto.toLowerCase()) {
+                if (acentos[char]) {
+                    textoLimpio += acentos[char];
+                } 
+                else if ((char >= "a" && char <= "z") || (char >= "0" && char <= "9")) {
+                    textoLimpio += char;
+                }
+            }
+            return textoLimpio;
+        }
+
+        // comprobamos si es palíndromo o no
+        function esPalindromo(texto) {
+            const textoLimpio = limpiarTexto(texto);
+            const textoInvertido = textoLimpio.split("").reverse().join(""); // Invierte el texto limpio
+            return textoLimpio === textoInvertido; // Compara el texto limpio con su versión invertida
+        }
+
+        //metemos texto: 
+        const textoUsuario = prompt("Introduce un texto para verificar si es un palíndromo:").trim();
+
+        if (textoUsuario === null || textoUsuario === "") {
+            console.log("Operación cancelada o texto vacío.");
+        } else {
+            // comprueba si es palindromo o no
+            if (esPalindromo(textoUsuario)) {
+                console.log(`"${textoUsuario}" es un palíndromo.`);
+            } else {
+                console.log(`"${textoUsuario}" no es un palíndromo.`);
+            }
+        }
+    </script>
+</body>
+</html>
