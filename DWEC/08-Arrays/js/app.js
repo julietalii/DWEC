@@ -48,7 +48,7 @@ console.log(arrayConTodo);
 console.log(colores);
 console.table(colores);
 console.table(arrayConTodo);
-//alert(colores);
+// alert(colores);
 //alert(arrayConTodo);
 
 //document.write(colores);//escribe en mi propio html
@@ -109,8 +109,18 @@ console.log("Usando for in: ")
  console.log(b1);
  console.log(b2);
  console.log(b3);
+ console.log(b4);
  console.log(b5);
- console.log(b1);
+
+ const array7 = ["j", "k", ,"h"];
+ let[a1, a2, a3, a4] = array7;
+ console.log(a1);
+ console.log(a3);
+
+ const array8 = array7;
+
+ console.log(array7);
+ console.log(array8);
 
  let [be1, be2, be3, , be5] = bebidas;
  console.log(be1);
@@ -121,7 +131,7 @@ console.log("Usando for in: ")
 
  //Operador de expansion, propagacion spread (...)
  const bebidas2 = bebidas; //esto no es hacer copia
- bebidas2[3] = "Nestea"; //el cambio va en bebidas2 y en bebidas EXAMEN
+ bebidas2[3] = "tea"; //el cambio va en bebidas2 y en bebidas EXAMEN
  console.log(bebidas);
  console.log(bebidas2);
 
