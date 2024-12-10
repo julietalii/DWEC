@@ -13,6 +13,9 @@ let cadena = "hola" ; //string
 let cadena1 = new String("hola"); //object
 console.log(typeof cadena);
 console.log(typeof cadena1);
+let cadena2 = new String("prueba");
+console.log(cadena1 === cadena2);
+console.log(cadena1 == cadena2);
 
 // === comparacion no estricta
 console.log(cadena === cadena1);//false
@@ -25,10 +28,32 @@ console.log(numero2 === numero1);
 //compara valor
 console.log(numero2 == numero1);
 
+console.log("prueba")
+let a = new Number(1);
+let b = new Number(1);
+console.log(a == b);
+
 //toString()
+let cadena5="3";
+console.log(typeof cadena5);
+nuevacadena5=cadena5.toString();
+console.log(typeof nuevacadena5);
+console.log(cadena5);
+
 //toFixed()
+
+let numfixed = 9.2349573
+console.log(numfixed);
+ab = numfixed.toFixed(3);
+console.log(ab);
+
 //Number()
 //parseInt()
+console.log(parseInt("123abc")); // 123 (extrae el número)
+console.log(parseInt("abc123")); // NaN (no empieza con número)
+console.log(parseInt("101", 2)); // 5 (interpreta en base 2)
+console.log(parseInt("0xff", 16)); // 255 (base 16)
+
 //parseFloat()
 //isInteger()
 

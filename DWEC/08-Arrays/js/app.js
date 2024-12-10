@@ -67,6 +67,7 @@ for(let i=0; i<colores.length; i++){
 //variantes del for: for in, for of
 const frutas = ["naranja", , "limon", , "melon"]; //puedo crear array con valores nulos
 console.table(frutas);
+console.log(frutas);
 
 //toString() visualiza el array con una cadena separada por comas
 console.log(frutas.toString());
@@ -187,3 +188,5 @@ console.log("Usando for in: ")
 
  const listanums= [2,4, 1];
  console.log(Math.max(...listanums));
+
+ console.log("Hola Mundo".indexOf("o"));

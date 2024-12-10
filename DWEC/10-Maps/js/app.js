@@ -77,3 +77,14 @@ const cadena= "Mañana no hay clase porque es el día do ensino";
 /*a : sale 5 veces 
 puedes crear un mapa con todas las letras del abcdario
 conteo 0, recorro cadena, si veo a, sumo, etc*/
+const frecuenciass = new Map();
+
+const cadenaMinusculas = cadena.toLowerCase();
+let cont=0;
+for (let i of cadenaMinusculas){
+   if(i==="a") {
+    
+    cont++;
+    }
+   }
+console.log(cont);

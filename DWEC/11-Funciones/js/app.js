@@ -15,12 +15,13 @@
 
 // //hoisting o elevacion, cuando definimos estas funciones de forma basica, podemos invocar funcion antes de declararla
 
-// // function saludar2(mensaje, para){
-// //     if (para === undefined) {
-// //         para = "usuarix";
-// //     }
-// //     return `Mensaje: ${mensaje}. Para: ${para}`;
-// // }
+function saludar2(mensaje, para){
+    if (para === undefined) {
+        para = "usuarix";
+    }
+    return `Mensaje: ${mensaje}. Para: ${para}`;
+}
+console.log(saludar2());
 
 // saludar2("Holi", "Pepe");//js no controla si le pasas bn el parametro ni el tipo
 

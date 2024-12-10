@@ -12,6 +12,8 @@
         let dato = promp("mensaje", "instrucciones");
 */
 
+let resultado = confirm("mensaje");
+
 /*let resultado = confirm("¿Quieres cerrar la ventana?");
 console.log(resultado);*/
 
@@ -31,8 +33,8 @@ math.metodo
 round, ceil, floor, trunc, min, max, abs, sign, pow, random
 */
 
-/*console.log(Math.trunc(3.5445345));
-console.log(Math.rand(3.5445345));
+console.log(Math.trunc(3.5445345));
+console.log(Math.round(3.5445345));
 console.log(Math.ceil(3.5445345));
 console.log(Math.floor(3.5445345));
 console.log(Math.sign(3.5445345)); 
@@ -41,7 +43,7 @@ console.log(Math.min(-3.5445345, -2, 4, -1)); //-2
 console.log(Math.random()); //entre 0 y 1 (excluido el 1)
 console.log(Math.floor(Math.random()*11));
 //Numero aleatorio entre 5 y 15
-Math.round(Math.random() * (15 - 5) + 5); //??*/
+Math.round(Math.random() * (15 - 5) + 5); 
 //control de flujo 
 /**
  * if (condicion){
@@ -73,7 +75,7 @@ if(local > visitante){
 /*console.log((local > visitante) ? "Local gana" :
  ((visitante>local)  ? "Visitante gana" : "Empate"));
 
-  document.write("<h1>efe</h1>");*/
+  document.write("<h1>efe</h1>");
 
   //para ejercicio 2 nos muestre x consola buenos dias, ....
   /**objeto date 

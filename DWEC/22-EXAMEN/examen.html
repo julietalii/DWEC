@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f8(s){
+            s = "no";
+            return s;
+        }
+        let t = "si";
+        f8(t);
+        console.log(t); //devuelve SI, xq no hace llamamiento de la funcion al imprimir
+
+        /**********************************************************/
+
+        //js no comprueba parametros, lo q no pase es undefined
+        function f2(a,b,c=10){
+            console.log(`a=${a}, b=${b}, c=${c}`);
+        }
+        f2(1);  //a=1, b= undefined y 10
+
+        /**********************************************************/
+
+        const str = "JavaScript es genial"; //los metodos de cadena no modifican la cadena original
+        const result = str.slice(-7, -1).toUpperCase();
+        console.log(result);
+        //slice: corta una candea. sintaxis: cadena.slice(inicio, hasta el fin, sin incluirlo)
+        //se imprime: GENIA
+
+        /**********************************************************/
+
+        //Metodo cadena.split(parte la cadena por el elemento )
+        //Escribe una funcion a la que se le pase como parámetro una cadena
+        //y devuelva la misma cadena invertida utilizando el metodo split 
+        //y otros metodos de cadena q conozcas: 
+
+        function invertirCadena(cadena){
+            return cadena.split("").reverse().join("");
+        }
+        console.log(invertirCadena("hola"));
+
+        //cadena.split(""), array.reverse(), array.join()
+
+        /**********************************************************/
+
+        const numeros = [1,2,3,4];
+        numeros.splice(1,2,5,6); //desde 1 quiero cortar 2 elementos y meto 5 y 6
+        console.log(numeros);
+        //array.splice(inicio desde dd quieres cortar, elementos a cortar, elementos a incluir)
+
+        /**********************************************************/
+
+        //Escribe una funcion que elimine todos los valores null 
+        //y undefunes de un array utilizando FILTER.
+        //array.filter(function(elemento, indice, array original))
+        //el elemento es obligatorio
+
+        function limpiarArray(arr){
+            const eliminado = arr.filter(x => x !== null && x !== undefined);
+            return eliminado;
+        }
+
+        const array = [0, null, "hola", undefined, 42];
+        console.log(limpiarArray(array)); //[0, "hola", 42]
+        
+        /**********************************************************/
+        
+        //map: tipo de objeto que guarda objetos par-valor?
+
+        const map = new Map() ;
+        map.set("clave1", 10);
+        map.set("clave2", 20);
+        map.set("clave1", 30);
+        map.set("Clave1", 20);
+        console.log(map.size); //devuelve 3
+
+        /**********************************************************/
+
+        //crea una funcion a la que se le pasa un array  y lo devuelve
+        //sin duplicados ni numeros negativos
+
+        function LimpiarDuplicadosNegativos(arr){
+  
+            const arraySinNegativos = arr.filter(x=>x>=0);
+
+            const conjunto = new Set(arraySinNegativos); //conjunto sin duplos
+
+            return [...conjunto];  //cambias de set a array
+
+        }
+        let num = [2, -3, 2 , 4, 6, -4];
+        let res = LimpiarDuplicadosNegativos(num);
+        console.log(res);
+
+        /**********************************************************/
+
+        console.log("2"*12); //24 number
+        console.log(12+"2"); //122 string
+
+        /**********************************************************/
+
+        let conjuntoDarrays = new Set([
+            [1,2,3],
+            [4,5,6],
+            [7,8,9]
+        ]);
+
+        //Set no tiene indices numéricos
+        const array2 = [...conjuntoDarrays]; //lo pasamos a array
+
+        //ahora, accedemos al array
+        console.log(array2[1][0]);
+
+        /**********************************************************/
+
+        let numeros3 = [1,2,3,4];
+        let mapa2 = new Map();
+        numeros3.forEach(num => mapa2.set(num, num*num));
+        console.log(mapa2.get(3));  //9
+
+        /**********************************************************/
+
+        let mapa = new Map();
+        mapa.set("a", 1);
+        mapa.set("b", 2);
+        console.log(mapa.get("c")); //devuelve UNDEFINED xq no existe
+        //el get se le pasa una clave y devuelve el valor asociado a ella
+
+        /**********************************************************/
+
+        //Completa la instrucción que falta:
+        function contarCaracteres(str){
+            const mapa = new Map();
+            for(const char of str){
+                mapa.set(char, mapa.get(char) + 1); 
+            }
+            return mapa;
+        }
+        console.log(contarCaracteres("javascript"));
+
+        /**********************************************************/
+
+        /*EJERCICIO 1O FIGURA 3:      */
+
+        const arr = [1,2, ,3];
+        for(let i in arr){
+            console.log(i); 
+            //devuelve 0 1 3
+        }
+
+        /**********************************************************/
+
+        /*EJERCICIO 14 FIGURA 4:      */
+        
+        const valor = "2";
+        switch(valor){
+            case 1:
+                console.log("Uno");
+            case 2:
+                console.log("Dos");
+            case 3:
+                console.log("Tres");
+            default:
+                console.log("Otro número");
+        }
+
+        //DEVUELVE OTRO NUMERO
+
+        /**********************************************************/
+
+        /*EJERCICIO 15 FIGURA 6:      */
+
+        let valores = [1,2,3,4];
+        let eliminado = valores.pop();
+
+        console.log(eliminado);
+
+        //DEVUELVE 4
+
+        /**********************************************************/
+
+        const conjunto = new Set(
+            [[1,2,3],[4,5,6]]
+        );
+        console.log(typeof conjunto);
+
+        //DEVUELVE OBJECT
+
+        /**********************************************************/
+
+        /*EJERCICIO 17 FIGURA 2:      */
+
+        do{
+            x = prompt("Escribe un numero");
+            if(isNaN(x%2)){
+                x=2;
+            }
+        }while(x%2===0);
+
+        //Pide un numero al usuario hasta que sea impar
+
+        /**********************************************************/
+
+        doble(2);
+        const doble = x => 2*x;
+
+        // ESTE DA ERROR 
+
+        /**********************************************************/
+
+        const colores = ["Verde", "Azul", "Rosa"];
+        let[,,c] = colores;
+        console.log(c);
+
+    </script>
+</body>
+</html>

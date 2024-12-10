@@ -27,7 +27,7 @@ console.log(cadena[20]); //undefined
 
 console.log(cadena.at(-2)); // l
 
-console.log(cadena2.indexOf("o")) //1
+console.log(cadena2.indexOf("a")) //1
 console.log(cadena2.lastIndexOf("o")) //9
 console.log(cadena2.indexOf("O")) //-1, ya que no existe.
 
@@ -48,7 +48,7 @@ console.log(cadena.repeat(5));
 
 //EXTRAER PARTES DE UNA CADENA:
 //substring(ini, fin), slice(ini, fin)
-console.log(cadena2.substring(0,4)); //Hola
+console.log(cadena2.substring(0,3)); //Hola
 console.log(cadena2.slice(0,4)); //Hola
 console.log(cadena2.slice(-5)); //mundo
 
@@ -93,4 +93,10 @@ console.log(nombre.localeCompare(nombre2)); //puedo modificar localeCompare para
 console.log(nombre.localeCompare(nombre2, 'es', { sensitivity: 'base' })); 
 // Devuelve 0, ya que no tiene en cuenta mayúsculas, minúsculas o acentos.
 
+let reemplazo = "hola amigos, hola";
+console.log(reemplazo);
+let nuevo = reemplazo.replace("hola", "adios");
+console.log(nuevo);
+let contodo = reemplazo.replaceAll("hola", "adios");
+console.log(contodo);
 

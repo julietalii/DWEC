@@ -24,6 +24,11 @@ conjunto.add("adios");
 console.log(conjunto);
 console.log(conjunto[0]); //undefined porque esto no se puede hacer en set, no hay indices
 
+
+const set1 = new Set();
+set1.add(43);
+console.log(set1);
+
 //crear pasandole array
 const conjunto2 = new Set(["a", "b", "a", "d"]); //test
 console.log(conjunto2);
@@ -52,7 +57,7 @@ console.log(conjunto.size);
 console.log(conjunto.has("hola")); //devuelve true o false
 conjunto.delete("hola");
 console.log(conjunto);
-conjunto.clear();
+conjunto.clear(); //borra el contenido
 console.log(conjunto);
 
 
@@ -84,6 +89,7 @@ console.log(ropa.has("Camisa")); //devuelve true o false en funcion si esta o no
 
 
 //clear: limpia todos los elementos del conjunto 
+console.log(motos);
 motos.clear();
 console.log(motos);
 
@@ -92,8 +98,10 @@ for(let valor of ropa){
     console.log(valor);
 }
 
-const conjunto4 = new Set("pantalon"); //te segrega la palabra en una letra y la guarda en una celda del cset
+const conjunto4 = new Set("pantan"); //te segrega la palabra en una letra y la guarda en una celda del cset
 console.log(conjunto4);
+
+
 
 //values()
 for(let valor of ropa.values()){
