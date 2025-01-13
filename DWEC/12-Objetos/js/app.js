@@ -175,3 +175,121 @@ const coche3 = {
 
 //para acceder a valor dentro de objeto, usamos THIS
 //accede al objeto que tratamos
+
+
+/************************************** */
+            /*13-01-2025 */
+/************************************** */
+
+const fruta = {
+    nombre:"Pera",
+    tipo:"Conferencia",
+    precio:2.95,
+    descuento:true,
+    info:function(){
+        return `La fruta ${this.nombre} de tipo ${this.tipo} tiene un precio de ${this.precio}`;
+    },
+    precioDescuento: function(){
+        if(this.descuento){
+            return this.precio - 0.5;
+        }
+    },
+    actualizarPrecio:function(nuevoprecio){
+        this.precio = nuevoprecio;
+    }
+}
+console.table(fruta);
+//añadir propiedades a un objeto:
+fruta.color="Verde";
+
+//añadir metodos a un objeto: EN ESTE CASO, metodo q compare dos frutas
+//y q devuelva cadena indicando cual es la q mas vale
+fruta.compararPrecio = function(nuevaFruta){
+    
+    if(this.precio > nuevaFruta.precio){
+        return `La fruta mas barata es ${nuevaFruta.nombre}`;
+    }else if (this.precio < nuevaFruta.precio){
+        return `La fruta mas barata es ${this.nombre}`;
+    }else{
+        return `Tienen el mismo precio`
+    }
+};
+
+//LLAMADAS A LOS METODOS
+console.log(fruta.info());
+console.log(`El precio de descuento es: ${fruta.precioDescuento()}`);
+
+//crear nuevo objeto:
+const fruta2 = {
+    nombre:"Manzana",
+    tipo:"Golden",
+    precio:2.20,
+    descuento:true,
+    info:function(){
+        return `La fruta ${this.nombre} de tipo ${this.tipo} tiene un precio de ${this.precio}`;
+    },
+    precioDescuento: function(){
+        if(this.descuento){
+            return this.precio - 0.5;
+        }
+    },
+    actualizarPrecio:function(nuevoprecio){
+        this.precio = nuevoprecio;
+    }
+}
+
+console.log(fruta.compararPrecio(fruta2));
+
+// console.log(fruta2.compararPrecio(fruta));
+//este no va a funcionar xq en fruta2 no existe este metodo!
+
+
+//ELIMINAR PROPIEDADES O METODOS TRAS LA CREACION
+//delete nombreObjeto.nombrePropiedad
+//delete nombreObjeto.nombreMetodo
+
+//VISUALIZAR UN OBJETO
+console.log(fruta.nombre);
+    //CON BUCLES TB VALE:
+    //con for.off no funciona xq no va con los iterables    TEST
+    for(let i in fruta){
+        if(typeof fruta[i] !== 'function'){
+            console.log(fruta[i]);
+        }
+    }
+
+//METODOS PARA VISUALIZAR OBJETOS
+    //Metodos: Object.values(), Object.keys(), Object.entries()
+    //Cada uno de ellos devuelve un array con valores, claves, y
+    //pares clave valor de los OBJETOS
+
+    const array_valores = Object.values(fruta);
+    // console.log(array_valores);
+    for(let valor of Object.values(fruta)){
+        if(typeof valor !=='function'){
+            console.log(valor);
+        }    
+    };
+
+    for(let ind of Object.keys(fruta)){
+        if(typeof ind !=='function'){
+            console.log(ind);
+        }        
+    };
+
+    for(let [cl,val] of Object.entries(fruta)){
+        if(typeof val !=='function'){
+            console.log(`La clave es ${cl} y el valor es ${val}`);
+        }   
+    };
+
+//Convertir un objeto a cadena en formato JSON
+//para por ejemplo guardar en un archivo o 
+//alamacenamiento local:
+//-->localStorage, sessionStorage
+const cadenaObjeto = JSON.stringify(fruta);
+console.log(cadenaObjeto);
+
+/*metodo es lo mismo q propiedad, la clase
+es una cadena, el propio metodo se declara como
+ funcion */
