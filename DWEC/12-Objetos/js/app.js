@@ -293,3 +293,133 @@ console.log(cadenaObjeto);
 /*metodo es lo mismo q propiedad, la clase
 es una cadena, el propio metodo se declara como
  funcion */
+
+
+/************************************** */
+            /*15-01-2025 */
+/************************************** */
+
+//Función constructora de objetos:
+function Persona(nom, ap1, ap2, fnac, ocu, ojos ="Marrones"){
+    //PROPIEDADES
+    this.nombre = nom;
+    this.apellido1 = ap1;
+    this.apellido2 = ap2;
+    this.fnacimiento = new Date(fnac);
+    this.ocupacion = ocu;
+    //propiedades con valor por defecto
+    this.ojos= ojos;
+    //this.ojos=2;
+    //si pongo en el parametro un valor, siempre estara por
+    //defecto si no se le pasa otro valor
+
+    
+    //Métodos: 
+    this.nombreCompleto = function(){
+        return `Mi nombre es ${this.nombre} ${this.apellido1} ${this.apellido2}`;
+    };
+    //las funciones terminan en ; como en las propiedades
+
+    this.cambiarOcupacion = function(nuevaOcupacion){
+        return this.ocupacion = nuevaOcupacion;
+    };
+
+    this.obtenerEdad = function(){
+        const anhoActual = new Date().getFullYear();
+        return anhoActual - this.fnacimiento.getFullYear()
+    };
+
+    this.infoCompleta = function(){
+        return `Mi nombre es ${this.nombreCompleto()} y trabajo de ${this.ocupacion} y tengo ${this.obtenerEdad()} años`
+    };
+}
+
+//Instanciar objetos Persona
+const miPadre = new Persona("Pepe", "López", "Martínez", "1977-01-01", "banquero", "verdes"); 
+const miMadre = new Persona("María", "Pérez", "Martínez", "1977-02-02", "Docente");
+
+//Visualizamos el objeto:
+for(let v of Object.values(miPadre)){
+    if(typeof v !== "function"){
+        console.log(v)
+    }
+    
+}
+
+for(let v of Object.values(miMadre)){
+    if(typeof v !== "function"){
+        console.log(v)
+    }
+}
+
+//Cambiar propiedades en los objetos instanciados:
+miMadre.ojos ="AMARILLOS";
+console.log(miMadre);
+
+//Añadir propiedad adicional a los objetos instanciados
+miMadre.altura=1.70;
+
+
+//si añadimos una propiedad a los objetos instanciados
+//no va a estar en el constructor, solo en el objeto que añadimos
+//si no está, da UNDEFINED 
+console.log(miMadre.altura);
+console.log(miPadre.altura);
+
+//podemos eliminar propiedades pero no se van del 
+//constructor
+
+//¿cómo añado propiedades o metodos en el constructor?
+Persona.prototype.altura = 1.70;
+const yo = new Persona("Lucia", "Pérez", "Pérez", "1990-01-01", "Camina");
+console.log(yo);
+
+Persona.prototype.infoOcupacion = function(){
+    return `Trabajo de ${this.ocupacion}`;
+}
+
+//Métodos asociados a los objetos:
+/*
+Object.create();
+Object.assign(); //se puede hacer lo mismo con el operador de propagacion
+Object.freeze();
+Object.seal();
+Object.isSealed(); Object.isFrozen();
+Object.hasOwnProperty(); //se puede hacer con in
+// */
+
+console.log(miMadre.hasOwnProperty("nombre"));//true
+console.log(miMadre.hasOwnProperty("abcdefghijkl"));//true
+console.log("nombre" in miMadre); //true
+
+// Object.create();
+//crea un objeto a partir de uno existente
+const Clase = Object.create(miMadre);
+console.log(Clase);
+
+//Object.assign(): copia las propiedades de una
+//o mas objetos
+Object.assign(miMadre,miPadre);
+console.log(miMadre);
+console.log(miPadre);
+//pasa los atributos de miPadre a miMadre
+
+
+//Object.freeze():
+//no deja modificar el objeto instanciado
+Object.freeze(miMadre);
+miMadre.ojos="azul claro";
+console.log(miMadre);
+
+//Object.seal(): evita que añadas o elimines propiedades, PUEDES MODIFICAR
+Object.seal(miPadre);
+miPadre.pelo=false;
+console.log(miPadre);
+
+console.log(Object.isSealed(miPadre));
+console.log(Object.isSealed(miMadre));
+
+console.log(Object.isFrozen(miPadre));
+console.log(Object.isFrozen(miMadre));
+
+
