@@ -110,7 +110,8 @@ function Baraja(){
                this.cartas.push(new Carta (i,j));
             }
         }
-        
+    }
+
     this.barajar = function(){
         for(let i = 0 ; i< 41 ; i++){
             Carta.paloToString(Math.random()*(4-1)+1);
