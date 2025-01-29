@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 1ª forma: -->
+    <!-- <h1 id="encabezado" onclick="document.getElementById('encabezado').style.color='red'">Clica para cambiar estilo</h1>  -->
+    <!-- 2ª forma: -->
+    <!-- <h1 id="encabezado" onclick="this.style.color='red'">Clica para cambiar estilo</h1> -->
+    <!-- con funcion: -->
+    <h1 id="encabezado" onclick="colorear(this.id)">Clica para cambiar estilo</h1>
+    <h2 id="subtitulo" onclick="colorear(this.id)">Subtitulo</h1>
+    <p id="p1" onmouseover="cambiarEstilo()" onmouseout="colorOriginal()">Este párrafo cambia de color al pasar el ratón</p>
+    <button id="boton1" onclick="mostrarFecha()">Mostrar fecha</button>
+    <p id="p2"></p>
+    <p id="p3">Haz click para recibir un saludo!</p>
+    <script src="js/app2.js"></script>
+</body>
+</html>

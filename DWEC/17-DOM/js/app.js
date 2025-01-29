@@ -110,3 +110,5 @@ enlace[0].title = "Enlace a Google";
 titulo.style.backgroundColor = "red";
 subtitulo.style.color = "pink";
 subtitulo.style.backgroundColor = "blue";
+
+
