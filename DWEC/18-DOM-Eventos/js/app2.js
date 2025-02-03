@@ -92,4 +92,3 @@ function azar() {
     return `rgb(${r},${g},${b})`; 
 }
 
-   

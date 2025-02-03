@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="encabezado">Saludar</h1>
+    <button id="btn1">borrar!</button>
+    <p id="eventos">Información de los eventos</p>
+
+    <p id="p1">Desde párrafo1 </p>
+    <p id="p2">Desde párrafo2 </p>
+
+    <p id="p3">Te saludo</p>
+
+    <div id="padre">
+        <p id="hijo">Párrafo 3</p>
+    </div>
+
+    <div id="contenedor">
+        <p>Primer párrafo</p>
+        <p>Segundo párrafo</p>
+    </div> 
+    <script>
+        /* addEventListener("click", referenciaFuncion)
+        tercer paramtro true false, para ver si se capturan
+        */
+       const encabezado = document.getElementById("encabezado");
+       encabezado.addEventListener("click", saludo);
+       encabezado.addEventListener("click", saludo2);
+       encabezado.addEventListener("click", cambiaColor);
+       function saludo(){
+        alert("Hola");
+       }
+
+       function saludo2(){
+        alert("Qué tal?");
+       }
+
+       function cambiaColor(){
+        encabezado.style.color = "red";
+       }
+    //    encabezado.addEventListener("click", function(){
+    //     alert("Hola")
+    //    });
+
+    document.getElementById("btn1").addEventListener("click", borrarEventos);
+    let original = encabezado.style.color;
+    function borrarEventos(){
+        encabezado.removeEventListener("click", saludo);
+        encabezado.removeEventListener("click", saludo2);
+        encabezado.removeEventListener("click", cambiaColor);
+        encabezado.style.color = original;
+    }
+
+    //Información de los eventos:
+    const eventos = document.getElementById("eventos");
+    eventos.addEventListener("mouseover", cambiaEstilo);
+    eventos.addEventListener("mouseout", cambiaEstilo);
+
+    //creamos parrafo, poner raton encima y sacarlo de encima
+
+    //creamos función
+    //e: evento que se ha lanzado
+    function cambiaEstilo(e){
+        // e.type se accede al evento lanzado
+        // e.target se accede al elemento que tiene el evento
+
+        console.log(e.type);
+        console.log(e.target);
+
+        if(e.type === "mouseover"){
+            eventos.style.color = "red";
+            this.style.color = "red";
+        }else if(e.type === "mouseout"){
+            this.style.color = "initial";
+
+        }
+    }
+
+    const p1 = document.getElementById("p1");
+    const p2 = document.getElementById("p2");
+
+    p1.addEventListener("click", mensaje);
+    p2.addEventListener("click", mensaje);
+
+    function mensaje(e){
+        console.log(e.type);
+        console.log(e.target);
+        if(e.target === "p1"){
+            console.log(`Hola ${this.innerHTML}`);
+        }else if(e.target === "p2"){
+            console.log(`Hola ${this.innerHTML}`);
+        }
+    }
+
+    //Como pasar parametros en addEventListener
+    document.getElementById("p3").addEventListener("click", function(){
+        let nombre = prompt("Introduce tu nombre");
+        saludoNombre(nombre);  //llamada a la función con parámetro
+    });
+    function saludoNombre(nombre){
+        alert(`Hola ${nombre}`);
+        console.log("");
+    }
+
+
+    /*Navegar por el DOM:*/
+
+    /*
+    Propiedades de los nodos:
+    nodeName: h1, p, div
+    nodeType: es un numero 1 nodo elemento, 2 nodod atributo, 3 nodo texto
+    nodeValue: nodo elemento valor null,, nodo texto contenido de texto,  
+    */
+
+    console.log(encabezado.nodeName); //h1
+    console.log(encabezado.nodeValue); //null
+    console.log(encabezado.nodeType); //1
+
+    console.log(encabezado.firstChild.nodeName); //texto
+    console.log(encabezado.firstChild.nodeValue); //saludar
+    console.log(encabezado.firstChild.nodeType);  // 3
+
+
+    /*
+    RELACIONES ENTRE NODOS
+    - parentNode:
+    firstChild / firstElementChild
+    lastChild / lastElementChild
+    nextSibling / nextElement/Sibling
+    previousSibling / previousElementSibling
+    Childre / ChildNodes
+    */
+
+    let hijo = document.getElementById("hijo");
+    console.log(hijo.parentNode); 
+
+    let contenedor = document.getElementById("contenedor");
+    console.log(contenedor.firstChild); 
+    console.log(contenedor.firstElementChild); 
+
+    </script>
+</body>
+</html>
