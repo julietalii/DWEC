@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TAREAS</title>
+    <style>
+        .eliminar{
+            background-color: red;
+            color:white;
+            padding:5px;
+            border-radius: 5px;
+        }
+        .separar{
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>INSERTA TAREAS</h1>
+    <input type="text" id="input1" value="Tarea: ">
+    <button id="b1">Añadir</button>
+    <ul id="tareas">
+
+    </ul>
+    <script>
+        //referencia a elementos
+        const input = document.getElementById("input1");
+        const btn1 = document.getElementById("b1")
+
+        const lista = document.getElementById("tareas");
+
+        //addeventlistener
+        btn1.addEventListener("click", añadirTarea);
+
+        //funcion: 
+        function añadirTarea() {
+
+            let valor = input.value.trim();
+            if(!valor){
+                alert("No puede ir vacío");
+            }else{
+                crearElemento("li", valor, tareas);
+            }
+
+            function crearElemento(elemento, texto, padre){
+                const ele = document.createElement(elemento);
+                const text = document.createTextNode(texto);
+                ele.appendChild(text);
+                //podriamos omitir lo de appendChild:
+                // document.createElement(elemento).textContent = texto;
+                const btnEliminar = document.createElement("span");
+                btnEliminar.textContent = "X";
+                // btnEliminar.setAttribute("class", "eliminar");
+                //esta era la primera forma de atributo, vale si solo hay una clase
+                btnEliminar.classList.add("eliminar");
+                btnEliminar.classList.add("separar");
+                ele.appendChild(btnEliminar);
+                btnEliminar.addEventListener("click", function(){
+                    padre.removeChild(ele);
+                })
+                // meter elemento en padre:
+                padre.appendChild(ele); 
+                // input.value = ""; 
+                //para que se borren las cosas
+            }
+            
+        }
+    
+/******************************************************/
+        //     const button = document.querySelector("button");
+        //     button.addEventListener("click", añadirTarea);
+
+        //     const barra = document.getElementById("input1");
+        //     const texto = barra.trim();
+
+        // function añadirTarea() {
+        //     if (texto === "") {
+        //         alert("No puedes añadir una tarea vacía.");
+        //         return;
+        //     }
+
+        //     const li = document.createElement("li");
+
+        //     creo texto de li:
+        //     const textoLi = document.createtextNode(barra);
+            
+        //     añado texto de li a li
+        //     li.appendChild(textoLi);
+
+        //     añadi li a ul
+        //     const lista = document.getElementById("tareas");
+        //     tareas.appendChild(li);
+            
+        // }
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <div class="padre">
+        <div class="hijo">
+            <p class="nieto1">Nieto 1</p>
+            <p class="nieto2">Nieto 2</p>
+            <p class="nieto3">Nieto 3</p>
+        </div>
+        <DIV class="HIJO">d</DIV>
+    </div>
+    <ul id="lista">
+        <li class="item1">UNO</li>
+        <li class="item2">DOS</li>
+
+    </ul>
+    <script>
+        /*las q no tienen element buscan 
+        cualquier nodo
+        NAVEGAR POR EL DOM
+        parentNode / parentElementNode
+        firstChild / firstElementChild
+        ...
+        children[] / childNodes[]
+        */
+
+        // const hijo = document.querySelectorAll("div.hijo");
+        // console.log(hijo);
+
+        const hijo = document.querySelectorAll("div.hijo")[0];
+        console.log(hijo.parentElement);
+        console.log(hijo.firstElementChild);
+        // query selector busca objetos con esa refeencia
+        console.log(hijo.firstChild);
+        //el primer hijo del div, pero hay mas cosas q el elemento
+        //como el espacio
+        console.log(hijo.lastChild);
+        console.log(hijo.lastElementChild);
+        //accedemos a nieto 2:
+        console.log(hijo.firstElementChild.nextElementSibling);
+
+        //hacemos lo mismo pero con children: devuelve todos los hijos
+        //del elementpo
+        console.log(hijo.children[1]);
+        console.log(hijo.childNodes[0]);
+
+
+        /*AÑADIR Y ELIMINAR CONTENIDO HTML
+        para añadir: 
+            crear el elemento que voy a añadir:
+                document.createElement("li") ESTO ES EL NODO ELEMENTO
+            COMO ESTE li, va a tener contenido, creamos nodo texto:
+                document.createTextNode("Texto que quieras")
+            añado el hijo nodo texto al nodo elemento:
+                padre.appendChild(hijo)
+            El elemento creado lo añado o al body o a otro elemento
+            con appendChild
+                */
+            //creo li
+            const li3 = document.createElement("li");
+            //creo texto de li
+            const textoLi3 = document.createTextNode("Item3");
+            //añado texto de li a li
+            li3.appendChild(textoLi3);
+            //añadi li a ul
+            const lista = document.getElementById("lista");
+            lista.appendChild(li3);
+
+            console.log(lista.children[2]);
+
+            //le metemos la clase en la creacion
+            /*getAttribute
+            elelemento.setAttribute(nombreAtributo, valor) dar valor a atributo que ya existe*/
+
+            li3.setAttribute("class", "item3");
+           
+    </script>
+</body>
+</html>
