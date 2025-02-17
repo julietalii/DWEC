@@ -86,7 +86,28 @@ function anadirCurso(e){
 
 //extraer info de evento, parametro e, dos propiedades e.type, evento q se lanza
 //e.target (evento q lanzo el evento )
-//toggle:
+//toggle: añade o elimina una clase en html, dependiendo si ya la tiene o no
 // function toggle(){
 //     carrito.classList.toggle("mostrar");
 // }
+
+
+// mostrar carrito en interfaz
+function mostrarCarrito() {
+    //evitamos duplicados limpiadno el contenido
+    contenidoCarrito.innerHTML = "";
+
+    articulosCarrito.forEach(curso => {
+        //creamos fila para la tabla:
+        const row = document.createElement("tr"); 
+        row.innerHTML = `
+            <td><img src="${curso.imagen}" width="50"></td>
+            <td>${curso.titulo}</td>
+            <td>${curso.precio}</td>
+            <td>${curso.cantidad}</td>
+            <td><button class="borrar-curso" data-id="${curso.id}">X</button></td>
+        `;
+        contenidoCarrito.appendChild(row); 
+        //agregamos la fila a tbody
+    });
+}
