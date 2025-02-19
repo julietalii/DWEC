@@ -6,19 +6,17 @@
     <title>Document</title>
 </head>
 <body>
-    <h1 id="encabezado">Saludar</h1>
+    <h1 id="encabezado">
+        Saludar
+    </h1>
     <button id="btn1">borrar!</button>
     <p id="eventos">Información de los eventos</p>
-
     <p id="p1">Desde párrafo1 </p>
     <p id="p2">Desde párrafo2 </p>
-
     <p id="p3">Te saludo</p>
-
     <div id="padre">
         <p id="hijo">Párrafo 3</p>
     </div>
-
     <div id="contenedor">
         <p>Primer párrafo</p>
         <p>Segundo párrafo</p>
@@ -28,6 +26,7 @@
         tercer paramtro true false, para ver si se capturan
         */
        const encabezado = document.getElementById("encabezado");
+       console.log(encabezado);
        encabezado.addEventListener("click", saludo);
        encabezado.addEventListener("click", saludo2);
        encabezado.addEventListener("click", cambiaColor);
@@ -115,7 +114,7 @@
     nodeType: es un numero 1 nodo elemento, 2 nodod atributo, 3 nodo texto
     nodeValue: nodo elemento valor null,, nodo texto contenido de texto,  
     */
-
+    console.log("probando")
     console.log(encabezado.nodeName); //h1
     console.log(encabezado.nodeValue); //null
     console.log(encabezado.nodeType); //1

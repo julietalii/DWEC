@@ -45,3 +45,15 @@ const c2 = "hoy es martes";
 const patronReplace = /martes/gi;
 const cambio = c2.replace(patronReplace, "miercoles");
 console.log(cambio); 
+
+patron= /hola/;
+console.log(patron);
+
+const p5 = /[abc]/; // Busca si hay "a", "b" o "c"
+console.log(p5.test("manzana")); // true (contiene "a")
+console.log(p5.test("pera")); // false (no contiene "a", "b" o "c")
+
+
+const patrons = /^hola/;  
+console.log(patrons.test("Hola mundo")); // true  
+console.log(patrons.test("mundo Hola")); // false  

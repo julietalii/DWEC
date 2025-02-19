@@ -359,7 +359,6 @@ console.log(miMadre);
 //Añadir propiedad adicional a los objetos instanciados
 miMadre.altura=1.70;
 
-
 //si añadimos una propiedad a los objetos instanciados
 //no va a estar en el constructor, solo en el objeto que añadimos
 //si no está, da UNDEFINED 
